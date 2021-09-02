@@ -6,11 +6,11 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/02 14:52:57 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/02 19:07:38 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "libftprintf.h"
 #include <stdio.h>
 
 int	ft_printf(const char *s, ...)
@@ -28,7 +28,7 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%' && check_and_save(&storage, s, i))
 			i = check_and_save(&storage, s, i);
-			//função pra identificar o tipo e mandar printar de acordo com as flags
+			//função pra identificar o tipo e mandar printar de acordo com as flags ativas
 		else
 		{
 			write (1, &s[i], 1);
