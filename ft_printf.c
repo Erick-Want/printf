@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/02 19:07:38 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/03 11:50:18 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int	ft_printf(const char *s, ...)
 	while (s[i])
 	{
 		if (s[i] == '%' && check_and_save(&storage, s, i))
+		{
 			i = check_and_save(&storage, s, i);
+			count = count + print_storage(&storage, arg);
+		}
 			//função pra identificar o tipo e mandar printar de acordo com as flags ativas
 		else
 		{
