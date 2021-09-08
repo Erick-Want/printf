@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/03 12:50:08 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/08 10:40:23 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,6 @@ int	print_unsigned(size_t nb)
 	return (count);
 }
 
-int	print_address(size_t convert)
-{
-	int	count;
-
-	count = 0;
-	count = count + print_unsigned(convert);
-	return (count);
-}
-
 int	print_storage(s_params *storage,va_list arg)
 {
 	int	count;
@@ -87,10 +78,12 @@ int	print_storage(s_params *storage,va_list arg)
 	else if (storage->types == 'd' || storage->types == 'i')
 		count = count + print_number(va_arg(arg, int));
 	else if (storage->types == 'p')
-		count = count + print_address((size_t)va_arg(arg, void *));
+		count = count + print_address(va_arg(arg, size_t));
 	else if (storage->types == 'u')
-	count = count + print_unsigned(va_arg(arg, unsigned int));
+		count = count + print_unsigned(va_arg(arg, unsigned int));
+	else if (storage->types == 'x' || storage->types == 'X')
+		count = count + print_hex(va_arg(arg, size_t), storage->types);
 	else if (storage->types == '%')
-	count = count + print_char('%');
+		count = count + print_char('%');
 	return (count);
 }
