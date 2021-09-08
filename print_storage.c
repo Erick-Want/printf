@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/08 10:40:23 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:13:45 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	print_unsigned(size_t nb)
 	return (count);
 }
 
-int	print_storage(s_params *storage,va_list arg)
+int	print_storage(t_param *storage, va_list arg)
 {
 	int	count;
 

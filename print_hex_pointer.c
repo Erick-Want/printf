@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 10:39:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/08 10:39:37 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:07:03 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	print_address(size_t convert)
 	free(hex);
 	return (hex_len(convert) + 2);
 }
-
 
 int	print_hex(size_t convert, char c)
 {

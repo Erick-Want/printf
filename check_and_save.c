@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 15:38:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/02 14:29:59 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/08 11:13:38 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t type_specifier(s_params *storage, const char *s, size_t i)
+size_t	type_specifier(t_param *storage, const char *s, size_t i)
 {
 	if (ft_strchr(TYPES, s[i]))
 	{
@@ -38,9 +38,7 @@ size_t type_specifier(s_params *storage, const char *s, size_t i)
 	return (i);
 }
 
-//cspdiuxX%
-
-size_t	storage_flags(s_params *storage, const char *s, size_t i)
+size_t	storage_flags(t_param *storage, const char *s, size_t i)
 {
 	size_t	index;
 
@@ -57,7 +55,7 @@ size_t	storage_flags(s_params *storage, const char *s, size_t i)
 	return (i);
 }
 
-size_t	storage_width_precision_size(s_params *storage, const char *s, size_t i)
+size_t	storage_width_precision_size(t_param *storage, const char *s, size_t i)
 {
 	int	res;
 
@@ -77,7 +75,7 @@ size_t	storage_width_precision_size(s_params *storage, const char *s, size_t i)
 	return (i);
 }
 
-size_t	check_and_save(s_params *storage, const char *s, size_t i)
+size_t	check_and_save(t_param *storage, const char *s, size_t i)
 {
 	if (s[i] == '%')
 		i++;
