@@ -6,12 +6,21 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/08 11:14:29 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:25:30 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
+
+void	initialise_struct(t_param *storage)
+{
+	ft_bzero(storage->flags, 7);
+	storage->len_min = 0;
+	storage->precision = 0;
+	storage->size = 0;
+	storage->types = ' ';
+}
 
 int	ft_printf(const char *s, ...)
 {
@@ -20,10 +29,11 @@ int	ft_printf(const char *s, ...)
 	size_t		i;
 	t_param		storage;
 
+	initialise_struct(&storage);
 	i = 0;
 	count = 0;
 	va_start(arg, s);
-	ft_bzero(storage.flags, 7);
+
 	while (s[i])
 	{
 		if (s[i] == '%' && check_and_save(&storage, s, i))
