@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:26:01 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/14 14:08:02 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:43:33 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	flag_width(t_param *storage, char *s)
 		storage->len_min = storage->len_min * (-1);
 	while ((storage->len_min - len > 0) && storage->len_min > storage->size)
 	{
-		if (ft_strchr(storage->flags, '0') && width > 0)
+		if (ft_strchr(storage->flags, '0') && width > 0
+		&& !storage->types == 'c')
 		{
 			write (1, "0", 1);
 			count++;
@@ -124,7 +125,7 @@ int	general_flags_p(t_param *storage, size_t convert)
 		count = count + flag_space(storage);
 	if (ft_strchr(storage->flags, '-'))
 		flags_minus(storage);
-	str = ft_itoa(convert);//DETALHE IMPORTANTE (SIZE_T)
+	str = ft_itoa_sizet(convert);
 	if (storage->len_min > 0)
 	{
 		count = count + flag_width(storage, str);
@@ -140,5 +141,82 @@ int	general_flags_p(t_param *storage, size_t convert)
 	else
 		count = count + print_address(convert);
 	free(str);
+	return (count);
+}
+
+int	general_flags_u(t_param *storage, unsigned int nb)
+{
+	int		count;
+	char	*str;
+
+	count = 0;
+	if (ft_strchr(storage->flags, '-'))
+		flags_minus(storage);
+	str = ft_itoa_sizet(nb);
+	if (storage->len_min > 0)
+	{
+		count = count + flag_width(storage, str);
+		count = count + flag_precision_size(storage, str);
+		count = count + print_unsigned(nb);
+	}
+	else if (storage->len_min < 0)
+	{
+		count = count + flag_precision_size(storage, str);
+		count = count + print_unsigned(nb);
+		count = count + flag_width(storage, str);
+	}
+	else
+		count = count + print_unsigned(nb);
+	free(str);
+	return (count);
+}
+
+int	general_flags_hex(t_param *storage, char *hex)
+{
+	int		count;
+
+	count = 0;
+	if (ft_strchr(storage->flags, '-'))
+		flags_minus(storage);
+	if (storage->len_min > 0)
+	{
+		count = count + flag_width(storage, hex);
+		count = count + flag_precision_size(storage, hex);
+		print_string(hex);
+	}
+	else if (storage->len_min < 0)
+	{
+		count = count + flag_precision_size(storage, hex);
+		print_string(hex);
+		count = count + flag_width(storage, hex);
+	}
+	else
+		print_string(hex);
+	return (count);
+}
+
+int	general_flags_c(t_param *storage, char c)
+{
+	int		count;
+	char	*str;
+
+	count = 0;
+	if (ft_strchr(storage->flags, '-'))
+		flags_minus(storage);
+	str = "c";
+	if (storage->len_min > 0)
+	{
+		count = count + flag_width(storage, str);
+		//count = count + flag_precision_size(storage, str);
+		count = count + print_char(c);
+	}
+	else if (storage->len_min < 0)
+	{
+		//count = count + flag_precision_size(storage, str);
+		count = count + print_char(c);
+		count = count + flag_width(storage, str);
+	}
+	else
+		count = count + print_char(c);
 	return (count);
 }

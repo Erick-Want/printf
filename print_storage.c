@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/14 14:07:06 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:37:12 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	print_storage(t_param *storage, va_list arg)
 
 	count = 0;
 	if (storage->types == 'c')
-		count = count + print_char(va_arg(arg, int));
+		count = count + general_flags_c(storage, va_arg(arg, int));
 	else if (storage->types == 's')
 		count = count + general_flags_s(storage, va_arg(arg, char *));
 	else if (storage->types == 'd' || storage->types == 'i')
@@ -92,9 +92,9 @@ int	print_storage(t_param *storage, va_list arg)
 	else if (storage->types == 'p')
 		count = count + general_flags_p(storage, va_arg(arg, size_t));
 	else if (storage->types == 'u')
-		count = count + print_unsigned(va_arg(arg, unsigned int));
+		count = count + general_flags_u(storage, va_arg(arg, unsigned int));
 	else if (storage->types == 'x' || storage->types == 'X')
-		count = count + print_hex(va_arg(arg, size_t), storage->types);
+		count = count + print_hex(storage, va_arg(arg, size_t));
 	else if (storage->types == '%')
 		count = count + print_char('%');
 	return (count);

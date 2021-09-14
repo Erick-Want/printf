@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 10:39:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/14 13:37:08 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:30:20 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	print_address(size_t convert)
 	return (hex_len(ret) + 2);
 }
 
-int	print_hex(size_t convert, char c)
+int	print_hex(t_param *storage, size_t convert)
 {
 	char	*s;
 	char	*hex;
@@ -58,7 +58,7 @@ int	print_hex(size_t convert, char c)
 
 	s = "0123456789abcdef";
 	ret = convert;
-	if (c == 'X')
+	if (storage->types == 'X')
 		s = "0123456789ABCDEF";
 	i = hex_len(convert);
 	hex = malloc (sizeof(char) * i + 1);
@@ -68,7 +68,7 @@ int	print_hex(size_t convert, char c)
 		hex[--i] = s[(convert % 16)];
 		convert = convert / 16;
 	}
-	print_string(hex);
+	i = general_flags_hex(storage, hex);
 	free(hex);
-	return (hex_len(ret));
+	return (i + hex_len(ret));
 }

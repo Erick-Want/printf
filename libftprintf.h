@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:15:29 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/14 14:06:31 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:36:50 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		print_number(int nb);
 int		print_unsigned(size_t nb);
 int		hex_len(size_t convert);
 int		print_address(size_t convert);
-int		print_hex(size_t convert, char c);
+int	print_hex(t_param *storage, size_t convert);
 int	flag_plus(t_param *storage);
 void	flags_minus(t_param *storage);
 int	flag_space(t_param *storage);
@@ -51,6 +51,10 @@ int	flag_zero(t_param *storage);
 int	general_flags_d(t_param *storage, int nb);
 int	general_flags_s(t_param *storage, char *s);
 int	general_flags_p(t_param *storage, size_t convert);
+int	general_flags_u(t_param *storage, unsigned int nb);
+int	general_flags_hex(t_param *storage, char *hex);
+int	general_flags_c(t_param *storage, char c);
+char	*ft_itoa_sizet(size_t n);
 
 
 #endif
