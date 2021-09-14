@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:15:29 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/10 17:23:32 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 14:06:31 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	flags_minus(t_param *storage);
 int	flag_space(t_param *storage);
 int	flag_zero(t_param *storage);
 int	general_flags_d(t_param *storage, int nb);
+int	general_flags_s(t_param *storage, char *s);
+int	general_flags_p(t_param *storage, size_t convert);
 
 
 #endif
