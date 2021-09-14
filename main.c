@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 14:52:35 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/10 17:25:59 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 13:38:40 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,18 @@
 int	main()
 {
 	unsigned int	num = 1254;
+	int				ret = 0;
 	char			*pointer = "Erick";
 	char			e = 'l';
 
 	//ft_printf("Hexadecimal |%X|\n|%u|\n|%p|\n", num, num, pointer);
 	//"letra%+ +-0#+-89.58s\n"
-	ft_printf("|%-10d|\n", num);
+	ret = ft_printf("PRINTF: |%-9.6d|\n", num);
+	printf("|%d|\n", ret);
+	ret = printf("PRINTF: |%-9.d|\n", num);
+	printf("|%d|\n", ret);
+	//ret = printf("|%- 10d|\n", num);
+	//printf("|%-.6d|\n", num);
 	//cspdiuxX
 	return (0);
 }

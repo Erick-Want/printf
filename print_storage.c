@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/10 14:11:29 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 13:33:11 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,32 @@ int	print_number(int nb)
 	}
 	else
 		nbr = (unsigned int)nb;
+	while (nb != 0)
+	{
+		count++;
+		nb = nb / 10;
+	}
 	if (nbr >= 10)
 		print_number(nbr / 10);
-	count = count + print_char((char)(nbr % 10 + 48));
+	print_char((char)(nbr % 10 + 48));
 	return (count);
 }
 
 int	print_unsigned(size_t nb)
 {
-	int	count;
+	int		count;
+	size_t	nbr;
 
 	count = 0;
+	nbr = nb;
+	while (nbr != 0)
+	{
+		count++;
+		nbr = nbr / 10;
+	}
 	if (nb >= 10)
 		print_number(nb / 10);
-	count = count + print_char((char)(nb % 10 + 48));
+	print_char((char)(nb % 10 + 48));
 	return (count);
 }
 

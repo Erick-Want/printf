@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/10 17:25:30 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/14 10:17:37 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *s, ...)
 			count++;
 		}
 	}
-	printf("%s\n%c\n%d\n%d\n%d\n", storage.flags, storage.types, storage.len_min, storage.precision, storage.size);
+	//printf("%s\n%c\n%d\n%d\n%d\n", storage.flags, storage.types, storage.len_min, storage.precision, storage.size);
 	va_end(arg);
 	return (count);
 }
