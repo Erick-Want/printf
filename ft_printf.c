@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/14 10:17:37 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/15 12:54:54 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	ft_printf(const char *s, ...)
 	size_t		i;
 	t_param		storage;
 
-	initialise_struct(&storage);
 	i = 0;
 	count = 0;
 	va_start(arg, s);
 
 	while (s[i])
 	{
+		initialise_struct(&storage);
 		if (s[i] == '%' && check_and_save(&storage, s, i))
 		{
 			i = check_and_save(&storage, s, i);

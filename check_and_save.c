@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 15:38:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/08 11:13:38 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/15 15:14:52 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,13 @@ size_t	storage_width_precision_size(t_param *storage, const char *s, size_t i)
 {
 	int	res;
 
-	res = s[i] - 48;
-	while (ft_isdigit(s[++i]))
-		res = (res * 10) + s[i] - 48;
-	storage->len_min = res;
+	if (ft_isdigit(s[i]))
+	{
+		res = s[i] - 48;
+		while (ft_isdigit(s[++i]))
+			res = (res * 10) + s[i] - 48;
+		storage->len_min = res;
+	}
 	if (s[i] == '.')
 	{
 		storage->precision = 1;
@@ -81,8 +84,7 @@ size_t	check_and_save(t_param *storage, const char *s, size_t i)
 		i++;
 	if (ft_strchr(FLAGS, s[i]))
 		i = storage_flags(storage, s, i);
-	if (ft_isdigit(s[i]))
-		i = storage_width_precision_size(storage, s, i);
+	i = storage_width_precision_size(storage, s, i);
 	if (ft_strchr(TYPES, s[i]))
 		storage->types = s[i++];
 	else

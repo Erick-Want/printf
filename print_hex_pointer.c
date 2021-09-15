@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 10:39:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/14 17:30:20 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/15 09:28:12 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	print_address(size_t convert)
 	i = hex_len(convert);
 	hex = malloc (sizeof(char) * i + 3);
 	hex[0] = '0';
-	hex[1] = 'X';
-	hex[i] = '\0';
+	hex[1] = 'x';
+	hex[i] = 0;
 	while (i)
 	{
 		hex[--i + 2] = s[(convert % 16)];

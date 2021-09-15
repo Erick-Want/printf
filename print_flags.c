@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:18:57 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/10 16:54:25 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/15 14:02:51 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,28 @@ int	flag_plus(t_param *storage)
 	return (count);
 }
 
+int	flag_hash(t_param *storage, char *hex)
+{
+	int	count;
+
+	count = 0;
+	if (ft_strchr(storage->flags, '#'))
+	{
+		if (storage->types == 'o' || hex[0] == 0)
+		{
+			write (1, "0", 1);
+			count = 1;
+		}
+		else if (storage->types == 'x')
+		{
+			write (1, "0x", 2);
+			count = 2;
+		}
+		else if (storage->types == 'X')
+		{
+			write (1, "0X", 2);
+			count = 2;
+		}
+	}
+	return (count);
+}

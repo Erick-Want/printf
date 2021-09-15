@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/14 17:37:12 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/15 15:47:56 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	print_string(char *s)
 	i = 0;
 	count = 0;
 	if (!s)
-		return (0);
+	{
+		write (1, "(null)", 6);
+		return (6);
+	}
 	while (s[i] != '\0')
 	{
 		write (1, &s[i], 1);
@@ -42,9 +45,12 @@ int	print_number(int nb)
 	int				count;
 
 	count = 0;
+	if (nb == 0)
+		count++;
 	if (nb < 0)
 	{
 		write (1, "-", 1);
+		count++;
 		nbr = (unsigned int)(nb * -1);
 	}
 	else
@@ -60,12 +66,19 @@ int	print_number(int nb)
 	return (count);
 }
 
-int	print_unsigned(size_t nb)
+int	print_unsigned(size_t nb, t_param *storage)
 {
 	int		count;
 	size_t	nbr;
 
 	count = 0;
+	if (nb == 0 && !(storage->size) && storage->precision)
+	{
+		write (1, " ", 1);
+		return (1);
+	}
+	else if (nb == 0)
+		count++;
 	nbr = nb;
 	while (nbr != 0)
 	{
@@ -94,6 +107,8 @@ int	print_storage(t_param *storage, va_list arg)
 	else if (storage->types == 'u')
 		count = count + general_flags_u(storage, va_arg(arg, unsigned int));
 	else if (storage->types == 'x' || storage->types == 'X')
+		count = count + print_hex(storage, va_arg(arg, size_t));
+	else if (storage->types == 'o')
 		count = count + print_hex(storage, va_arg(arg, size_t));
 	else if (storage->types == '%')
 		count = count + print_char('%');
