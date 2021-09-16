@@ -5,10 +5,55 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/08/31 16:17:20 by ermatheu          #+#    #+#              #
-#    Updated: 2021/09/14 13:13:17 by ermatheu         ###   ########.fr        #
+#    Created: 2021/09/15 09:01:15 by ermatheu          #+#    #+#              #
+#    Updated: 2021/09/16 12:00:41 by ermatheu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# NAME	= libftprintf.a
+
+# CC		= clang
+
+# OBJS		= ${SRCS:%.c=%.o}
+
+# CFLAGS	= -Wall -Wextra -Werror
+
+# SRCS	=	ft_printf.c \
+# 		check_and_save.c \
+# 		print_hex_pointer.c \
+# 		print_storage.c \
+# 		general_flags.c \
+# 		print_flags.c \
+# 		print_utils.c
+
+# all: ${NAME}
+
+# ${NAME} : ${OBJS} libft
+# 	cp ./libft/libft.a $(NAME)
+# 	ar -rcs $(NAME) $(OBJS)
+
+# %.o: %.c
+# 	${CC} -c ${CFLAGS} $< -o $@
+
+# libft:
+# 	make all -C ./libft
+
+# bonus: all
+
+# clean:
+# 	rm -f ${OBJS}
+# 	make clean -C ./libft
+
+# fclean: clean
+# 	rm -f ${NAME}
+# 	make fclean -C ./libft
+
+# re: fclean all libftre
+
+# libftre:
+# 	make re -C ./libft
+
+# .PHONY: all libft clean fclean re libftre
 
 NAME = libftprintf.a
 
@@ -16,26 +61,27 @@ LIBFT_DIR = ./libft
 
 LIBFT = ./libft/libft.a
 
-SRCS = ft_printf.c \
+CFLAGS = -Wall -Werror -Wextra
+
+CC = clang
+
+SRCS =	ft_printf.c \
 		check_and_save.c \
 		print_hex_pointer.c \
 		print_storage.c \
 		general_flags.c \
-		print_flags.c
+		print_flags.c \
+		print_utils.c
 
 OBJS = ${SRCS:.c=.o}
 
 ${LIBFT}:
-	make all -C ${LIBFT_DIR}
-
-CFLAGS = -Wall -Werror -Wextra
-
-CC = gcc
+	make -C ${LIBFT_DIR} all
 
 all: ${NAME}
 
-${NAME}: ${LIBFT} ${OBJS}
-	ar rc ${NAME} ${OBJS}
+${NAME}: ${OBJS} ${LIBFT}
+	ar rc ${NAME} ${LIBFT} ${OBJS}
 
 bonus: all
 

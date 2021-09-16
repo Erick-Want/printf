@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 15:38:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/15 15:14:52 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/16 12:49:39 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,18 @@ size_t	storage_width_precision_size(t_param *storage, const char *s, size_t i)
 	}
 	if (s[i] == '.')
 	{
+		res = 0;
 		storage->precision = 1;
 		if (ft_isdigit(s[++i]))
+		{
 			res = s[i] - 48;
-		while (ft_isdigit(s[++i]))
+			i++;
+		}
+		while (ft_isdigit(s[i]))
+		{
 			res = (res * 10) + s[i] - 48;
+			i++;
+		}
 		storage->size = res;
 	}
 	return (i);

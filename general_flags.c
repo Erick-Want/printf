@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:26:01 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/15 15:48:28 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/16 15:20:54 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	flag_precision_size(t_param *storage, char *s)
 	int	len;
 	int	size;
 
+	// if (s[0] == '-')
+	// 	write (1, "-", 1);
 	if (storage->size == 0)
 		return (0);
 	count = 0;
@@ -80,21 +82,27 @@ int	general_flags_d(t_param *storage, int nb)
 		count = count + flag_space(storage);
 	if (ft_strchr(storage->flags, '-'))
 		flags_minus(storage);
-	str = ft_itoa(nb);
+	if (nb == 0 && storage->precision)
+		str = ft_calloc(sizeof(char), 1);
+	else
+		str = ft_itoa(nb);
 	if (storage->len_min > 0)
 	{
 		count = count + flag_width(storage, str);
 		count = count + flag_precision_size(storage, str);
-		count = count + print_number(nb);
+		count = count + print_string(str);
 	}
 	else if (storage->len_min < 0)
 	{
 		count = count + flag_precision_size(storage, str);
-		count = count + print_number(nb);
+		count = count + print_string(str);
 		count = count + flag_width(storage, str);
 	}
 	else
-		count = count + print_number(nb);
+	{
+		count = count + flag_precision_size(storage, str);
+		count = count + print_string(str);
+	}
 	free(str);
 	return (count);
 }
@@ -172,7 +180,10 @@ int	general_flags_u(t_param *storage, unsigned int nb)
 		count = count + flag_width(storage, str);
 	}
 	else
+	{
+		count = count + flag_precision_size(storage, str);
 		count = count + print_unsigned(nb, storage);
+	}
 	free(str);
 	return (count);
 }
@@ -200,6 +211,7 @@ int	general_flags_hex(t_param *storage, char *hex)
 	}
 	else
 	{
+		count = count + flag_precision_size(storage, hex);
 		count = count + flag_hash(storage, hex);
 		print_string(hex);
 	}
