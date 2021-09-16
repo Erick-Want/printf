@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 10:39:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/16 16:07:04 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/16 17:42:30 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,24 @@ int	print_address(size_t convert)
 	s = "0123456789abcdef";
 	ret = convert;
 	i = hex_len(convert);
+	if (convert == 0)
+	{
+		write (1, "0x0", 3);
+		return (3);
+	}
 	hex = malloc (sizeof(char) * i + 3);
 	if (!hex)
 		return (0);
 	hex[0] = '0';
 	hex[1] = 'x';
-	hex[i] = '\0';
+	hex[i + 2] = '\0';
 	while (i)
 	{
 		hex[--i + 2] = s[(convert % 16)];
 		convert = convert / 16;
 	}
 	print_string(hex);
-	//free(hex);
+	free(hex);
 	return (hex_len(ret) + 2);
 }
 

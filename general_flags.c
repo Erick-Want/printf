@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:26:01 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/16 15:20:54 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/16 17:26:19 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,25 +107,55 @@ int	general_flags_d(t_param *storage, int nb)
 	return (count);
 }
 
+char	*new_string_cut_precision(t_param *storage, char *s)
+{
+	char	*new;
+
+	if (storage->precision)
+	{
+		new = ft_substr(s, 0, storage->size);
+		return (new);
+	}
+	else
+		return(s);
+}
+
 int	general_flags_s(t_param *storage, char *s)
 {
 	int		count;
+	char	*s1;
 
 	count = 0;
+	if (!s)
+	{
+		s = new_string_cut_precision(storage, "(null)");
+		print_string(s);
+		count = ft_strlen(s);
+		free(s);
+		return (count);
+	}
+	s1 = s;
 	if (ft_strchr(storage->flags, '-'))
 		flags_minus(storage);
 	if (storage->len_min > 0)
 	{
+		s = new_string_cut_precision(storage, s);
 		count = count + flag_width(storage, s);//DETALHE IMPORTANTE LEN < SIZE
 		count = count + print_string(s);
 	}
 	else if (storage->len_min < 0)
 	{
+		s = new_string_cut_precision(storage, s);
 		count = count + print_string(s);
 		count = count + flag_width(storage, s);
 	}
 	else
+	{
+		s = new_string_cut_precision(storage, s);
 		count = count + print_string(s);
+	}
+	if (storage->precision)
+		free(s);
 	return (count);
 }
 

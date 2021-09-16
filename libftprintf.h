@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:15:29 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/16 12:26:23 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/16 16:33:59 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	general_flags_u(t_param *storage, unsigned int nb);
 int	general_flags_hex(t_param *storage, char *hex);
 int	general_flags_c(t_param *storage, char c);
 char	*ft_itoa_sizet(size_t n);
+char	*new_string_cut_precision(t_param *storage, char *s);
 
 
 #endif
