@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/15 12:54:54 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/17 17:54:15 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	ft_printf(const char *s, ...)
 	i = 0;
 	count = 0;
 	va_start(arg, s);
-
 	while (s[i])
 	{
 		initialise_struct(&storage);
@@ -41,7 +40,6 @@ int	ft_printf(const char *s, ...)
 			i = check_and_save(&storage, s, i);
 			count = count + print_storage(&storage, arg);
 		}
-			//função pra identificar o tipo e mandar printar de acordo com as flags ativas
 		else
 		{
 			write (1, &s[i], 1);
@@ -49,7 +47,6 @@ int	ft_printf(const char *s, ...)
 			count++;
 		}
 	}
-	//printf("%s\n%c\n%d\n%d\n%d\n", storage.flags, storage.types, storage.len_min, storage.precision, storage.size);
 	va_end(arg);
 	return (count);
 }

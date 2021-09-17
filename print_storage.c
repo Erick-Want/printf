@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/16 17:01:22 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/17 17:51:09 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int	print_string(char *s)
 		write (1, "(null)", 6);
 		return (6);
 	}
-	// if (s[0] == '-')
-	// 	i++;
 	while (s[i] != '\0')
 	{
 		write (1, &s[i], 1);

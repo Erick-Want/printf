@@ -6,7 +6,7 @@
 #    By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 09:01:15 by ermatheu          #+#    #+#              #
-#    Updated: 2021/09/16 12:00:41 by ermatheu         ###   ########.fr        #
+#    Updated: 2021/09/17 18:42:08 by ermatheu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 # CC		= clang
 
-# OBJS		= ${SRCS:%.c=%.o}
+# OBJS		= ${SRCS:.c=.o}
 
 # CFLAGS	= -Wall -Wextra -Werror
 
@@ -59,7 +59,7 @@ NAME = libftprintf.a
 
 LIBFT_DIR = ./libft
 
-LIBFT = ./libft/libft.a
+LIBFT = libft
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -76,23 +76,24 @@ SRCS =	ft_printf.c \
 OBJS = ${SRCS:.c=.o}
 
 ${LIBFT}:
-	make -C ${LIBFT_DIR} all
+	make all -C ${LIBFT_DIR}
 
 all: ${NAME}
 
 ${NAME}: ${OBJS} ${LIBFT}
-	ar rc ${NAME} ${LIBFT} ${OBJS}
+	cp ./libft/libft.a $(NAME)
+	ar rc ${NAME} ${OBJS}
 
 bonus: all
 
 clean:
-	rm -rf ${OBJS}
+	rm -f ${OBJS}
 	make -C ${LIBFT_DIR} clean
 
 fclean: clean
-	rm -rf ${NAME}
+	rm -f ${NAME}
 	make -C ${LIBFT_DIR} fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all libft clean fclean re

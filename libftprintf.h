@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:15:29 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/16 16:33:59 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:30:56 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,25 @@ int		print_storage(t_param *storage, va_list arg);
 int		print_char(char c);
 int		print_string(char *s);
 int		print_number(int nb);
-int	print_unsigned(size_t nb, t_param *storage);
+int		print_unsigned(size_t nb, t_param *storage);
 int		hex_len(size_t convert);
-int		print_address(size_t convert);
-int	print_hex(t_param *storage, size_t convert);
-int	flag_plus(t_param *storage);
+int		print_address(size_t convert, t_param *storage);
+int		print_hex(t_param *storage, size_t convert);
+int		flag_plus(t_param *storage);
 void	flags_minus(t_param *storage);
-int	flag_space(t_param *storage);
-int	flag_zero(t_param *storage);
-int	flag_hash(t_param *storage, char *hex);
-int	general_flags_d(t_param *storage, int nb);
-int	general_flags_s(t_param *storage, char *s);
-int	general_flags_p(t_param *storage, size_t convert);
-int	general_flags_u(t_param *storage, unsigned int nb);
-int	general_flags_hex(t_param *storage, char *hex);
-int	general_flags_c(t_param *storage, char c);
+int		flag_space(t_param *storage);
+int		flag_zero(t_param *storage);
+int		flag_hash(t_param *storage, char *hex);
+int		general_flags_d(t_param *storage, int nb);
+int		general_flags_s(t_param *storage, char *s);
+int		general_flags_p(t_param *storage, size_t convert);
+int		general_flags_u(t_param *storage, unsigned int nb);
+int		general_flags_hex(t_param *storage, char *hex);
+int		general_flags_c(t_param *storage, char c);
 char	*ft_itoa_sizet(size_t n);
 char	*new_string_cut_precision(t_param *storage, char *s);
-
+int		print_width(t_param *storage, int width, int len);
+char	*str_flags_p(t_param *storage, size_t convert);
+int		copy_string_hex(char *hex, size_t convert, char *s, t_param *storage);
 
 #endif
