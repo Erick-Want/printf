@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:31:45 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/17 18:41:53 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/20 13:48:50 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,16 @@ char	*ft_itoa_sizet(size_t n)
 		n = n / 10;
 	}
 	return (s);
+}
+
+size_t	ft_strlen_mod(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	if (s[0] == '-')
+		i--;
+	return (i);
 }

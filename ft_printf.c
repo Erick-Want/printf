@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/17 17:54:15 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:03:16 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	initialise_struct(t_param *storage)
 	storage->precision = 0;
 	storage->size = 0;
 	storage->types = ' ';
+	storage->nb_aux = 0;
+	storage->sign= 0;
 }
 
 int	ft_printf(const char *s, ...)

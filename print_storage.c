@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/17 17:51:09 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/20 15:04:11 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	print_char(char c)
 	return (1);
 }
 
-int	print_string(char *s)
+int	print_string(char *s, t_param *storage)
 {
 	size_t	i;
 	int		count;
@@ -29,6 +29,11 @@ int	print_string(char *s)
 	{
 		write (1, "(null)", 6);
 		return (6);
+	}
+	if (storage->nb_aux < 0 || storage->sign)
+	{
+		count++;
+		i++;
 	}
 	while (s[i] != '\0')
 	{
