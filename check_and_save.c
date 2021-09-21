@@ -6,11 +6,11 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 15:38:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/17 18:04:00 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:14:09 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_strchr(const char *s, int c)
 {

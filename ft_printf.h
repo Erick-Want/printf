@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:15:29 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/20 15:36:16 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:55:37 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
@@ -28,6 +28,7 @@ typedef struct params
 	int		size;
 	int		nb_aux;
 	int		sign;
+	size_t	nb_hex;
 
 }	t_param;
 
@@ -43,7 +44,7 @@ int		print_char(char c);
 int	print_string(char *s, t_param *storage);
 int		print_number(int nb);
 int		print_unsigned(size_t nb, t_param *storage);
-int		hex_len(size_t convert);
+int	hex_len(size_t convert);
 int		print_address(size_t convert, t_param *storage);
 int		print_hex(t_param *storage, size_t convert);
 int		flag_plus(t_param *storage);

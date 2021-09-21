@@ -6,11 +6,11 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 16:31:45 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/20 13:48:50 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:13:46 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static size_t	ft_len_int(size_t n)
 {

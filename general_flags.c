@@ -6,11 +6,11 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:26:01 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/20 16:00:57 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:03:21 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	flag_precision_size(t_param *storage, char *s)
 {
@@ -38,12 +38,15 @@ int	print_width(t_param *storage, int width, char *s)
 {
 	int	count;
 	int	len;
-	int	aux;
 
-	aux = 0;
 	count = 0;
-	len = ft_strlen(s);
-	while ((storage->len_min - len > 0) && storage->len_min > storage->size)
+	if (storage->types == 'p' && !(s[0] == '0')
+		&& (size_t)hex_len(storage->nb_hex) != ft_strlen(s))
+		len = hex_len(storage->nb_hex) + 2;
+	else
+		len = ft_strlen(s);
+	while ((storage->len_min - len > 0)
+		&& ((storage->len_min > storage->size) || (storage->types == 's')))
 	{
 		if (ft_strchr(storage->flags, '0') && width > 0
 			&& !(storage->types == 'c') && !(storage->precision))
@@ -52,7 +55,6 @@ int	print_width(t_param *storage, int width, char *s)
 		{
 			write (1, " ", 1);
 			count++;
-			aux++;
 			if ((s[0] == '-' && (storage->len_min - storage->size + 1 == len))
 				&& ((storage->types == 'd') || (storage->types == 'i')))
 				len++;
@@ -67,6 +69,9 @@ int	flag_width(t_param *storage, char *s)
 	int	count;
 	int	width;
 
+	if (storage->len_min > 0 && s[0] == '-' && storage->size
+		&& !(storage->len_min - storage->size - ft_strlen(s) == 1))
+		storage->len_min--;
 	width = storage->len_min;
 	if (storage->len_min < 0)
 		storage->len_min = storage->len_min * (-1);
@@ -195,6 +200,7 @@ int	general_flags_p(t_param *storage, size_t convert)
 	char	*str;
 
 	count = 0;
+	storage->nb_hex = convert;
 	if (ft_strchr(storage->flags, ' '))
 		count = count + flag_space(storage);
 	str = str_flags_p(storage, convert);

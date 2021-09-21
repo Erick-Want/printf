@@ -6,11 +6,11 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:18:57 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/20 15:03:37 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/21 14:13:54 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	flags_minus(t_param *storage)
 {
