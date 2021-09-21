@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 11:34:34 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/21 15:02:29 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:19:05 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	print_storage(t_param *storage, va_list arg)
 	else if (storage->types == 'u')
 		count = count + general_flags_u(storage, va_arg(arg, unsigned int));
 	else if (storage->types == 'x' || storage->types == 'X')
-		count = count + print_hex(storage, va_arg(arg, size_t));
+		count = count + print_hex(storage, va_arg(arg, unsigned int));
 	else if (storage->types == 'o')
 		count = count + print_hex(storage, va_arg(arg, size_t));
 	else if (storage->types == '%')

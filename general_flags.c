@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:26:01 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/21 16:03:21 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/21 16:37:59 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ int	print_width(t_param *storage, int width, char *s)
 	int	len;
 
 	count = 0;
-	if (storage->types == 'p' && !(s[0] == '0')
-		&& (size_t)hex_len(storage->nb_hex) != ft_strlen(s))
+	if (storage->types == 'p' && !(s[0] == '0'
+		&& ((size_t)hex_len(storage->nb_hex) != ft_strlen(s)
+		|| (ft_strchr(storage->flags, '0')))))
 		len = hex_len(storage->nb_hex) + 2;
 	else
 		len = ft_strlen(s);
