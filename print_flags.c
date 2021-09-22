@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/09 12:18:57 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/21 14:13:54 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:32:34 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,11 @@ int	flag_zero(t_param *storage)
 
 	count = 0;
 	if (storage->nb_aux < 0 && ((storage->types == 'd')
-		|| (storage->types == 'i')))
+			|| (storage->types == 'i')))
 	{
 		write (1, "-", 1);
 		storage->nb_aux = 0;
 		storage->sign = 1;
-		//count++;
 	}
 	if (ft_strchr(storage->flags, '0'))
 	{
