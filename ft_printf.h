@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:15:29 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/21 16:29:57 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:52:11 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ int		print_width(t_param *storage, int width, char *s);
 char	*str_flags_p(t_param *storage, size_t convert);
 int		copy_string_hex(char *hex, size_t convert, char *s, t_param *storage);
 size_t	ft_strlen_mod(const char *s);
+int		flag_width(t_param *storage, char *s);
+int		flag_precision_size(t_param *storage, char *s);
 
 #endif

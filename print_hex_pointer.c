@@ -6,7 +6,7 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 10:39:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/21 14:55:25 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:37:30 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,18 @@ int	print_hex(t_param *storage, size_t convert)
 		+ general_flags_hex(storage, hex);
 	free(hex);
 	return (i + hex_len(ret));
+}
+
+char	*str_flags_p(t_param *storage, size_t convert)
+{
+	char	*str;
+
+	if (ft_strchr(storage->flags, '-'))
+		flags_minus(storage);
+	str = ft_itoa_sizet(convert);
+	if (convert == 0 && storage->len_min > 0)
+		storage->len_min = storage->len_min - 2;
+	else if (convert == 0 && storage->len_min < 0)
+		storage->len_min = storage->len_min + 2;
+	return (str);
 }

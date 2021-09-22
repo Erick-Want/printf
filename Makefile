@@ -6,7 +6,7 @@
 #    By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 09:01:15 by ermatheu          #+#    #+#              #
-#    Updated: 2021/09/17 18:42:08 by ermatheu         ###   ########.fr        #
+#    Updated: 2021/09/22 14:50:14 by ermatheu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,10 @@ SRCS =	ft_printf.c \
 		print_storage.c \
 		general_flags.c \
 		print_flags.c \
-		print_utils.c
+		print_utils.c \
+		general_flag_s.c \
+		general_flag_d.c \
+		flag_width.c
 
 OBJS = ${SRCS:.c=.o}
 
