@@ -1,32 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_and_save.c                                   :+:      :+:    :+:   */
+/*   ft_check_and_save.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 15:38:04 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/21 14:14:09 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/22 15:26:39 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_strchr(const char *s, int c)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == (char) c)
-			return ((char *)(s + i));
-		i++;
-	}
-	if (s[i] == '\0' && (char) c == '\0')
-		return ((char *)(s + i));
-	return (NULL);
-}
 
 size_t	type_specifier(t_param *storage, const char *s, size_t i)
 {
