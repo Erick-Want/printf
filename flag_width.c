@@ -6,11 +6,24 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:45:24 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/22 14:46:39 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/22 14:58:33 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	len_string(t_param *storage, char *s)
+{
+	int	len;
+
+	if (storage->types == 'p' && !(s[0] == '0'
+			&& ((size_t)hex_len(storage->nb_hex) != ft_strlen(s)
+				|| (ft_strchr(storage->flags, '0')))))
+		len = hex_len(storage->nb_hex) + 2;
+	else
+		len = ft_strlen(s);
+	return (len);
+}
 
 int	print_width(t_param *storage, int width, char *s)
 {
@@ -18,12 +31,7 @@ int	print_width(t_param *storage, int width, char *s)
 	int	len;
 
 	count = 0;
-	if (storage->types == 'p' && !(s[0] == '0'
-			&& ((size_t)hex_len(storage->nb_hex) != ft_strlen(s)
-				|| (ft_strchr(storage->flags, '0')))))
-		len = hex_len(storage->nb_hex) + 2;
-	else
-		len = ft_strlen(s);
+	len = len_string(storage, s);
 	while ((storage->len_min - len > 0)
 		&& ((storage->len_min > storage->size) || (storage->types == 's')))
 	{
