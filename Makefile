@@ -6,7 +6,7 @@
 #    By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 09:01:15 by ermatheu          #+#    #+#              #
-#    Updated: 2021/09/22 14:50:14 by ermatheu         ###   ########.fr        #
+#    Updated: 2021/09/22 15:17:07 by ermatheu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,15 +66,15 @@ CFLAGS = -Wall -Werror -Wextra
 CC = clang
 
 SRCS =	ft_printf.c \
-		check_and_save.c \
-		print_hex_pointer.c \
-		print_storage.c \
-		general_flags.c \
-		print_flags.c \
-		print_utils.c \
-		general_flag_s.c \
-		general_flag_d.c \
-		flag_width.c
+		ft_check_and_save.c \
+		ft_print_hex_pointer.c \
+		ft_print_storage.c \
+		ft_general_flags.c \
+		ft_print_flags.c \
+		ft_print_utils.c \
+		ft_general_flag_s.c \
+		ft_general_flag_d.c \
+		ft_flag_width.c
 
 OBJS = ${SRCS:.c=.o}
 
