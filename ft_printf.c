@@ -6,12 +6,11 @@
 /*   By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/31 16:23:51 by ermatheu          #+#    #+#             */
-/*   Updated: 2021/09/22 14:31:14 by ermatheu         ###   ########.fr       */
+/*   Updated: 2021/09/23 13:28:55 by ermatheu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	initialise_struct(t_param *storage)
 {
@@ -26,10 +25,10 @@ void	initialise_struct(t_param *storage)
 
 int	ft_printf(const char *s, ...)
 {
-	va_list		arg;
-	int			count;
-	size_t		i;
-	t_param		storage;
+	va_list	arg;
+	int		count;
+	size_t	i;
+	t_param	storage;
 
 	i = 0;
 	count = 0;

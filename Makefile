@@ -6,7 +6,7 @@
 #    By: ermatheu <ermatheu@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/15 09:01:15 by ermatheu          #+#    #+#              #
-#    Updated: 2021/09/22 15:17:07 by ermatheu         ###   ########.fr        #
+#    Updated: 2021/09/23 14:53:04 by ermatheu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,10 +78,10 @@ SRCS =	ft_printf.c \
 
 OBJS = ${SRCS:.c=.o}
 
+all: ${NAME} ${LIBFT}
+
 ${LIBFT}:
 	make all -C ${LIBFT_DIR}
-
-all: ${NAME}
 
 ${NAME}: ${OBJS} ${LIBFT}
 	cp ./libft/libft.a $(NAME)
